@@ -13,8 +13,6 @@ const HomeLayout = () => {
         <Outlet />
       </main>
 
-      {/* not sure if this is good, its hard svg */}
-      {/* <UniversityBanner /> */}
       <Footer />
     </div>
   );

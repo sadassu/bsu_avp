@@ -31,73 +31,71 @@ const BSITSection = () => {
   return (
     <section
       id="bsit-section"
-      className="w-full min-h-screen bg-slate-200 flex items-center"
+      className="w-full min-h-screen bg-slate-100 flex items-center"
     >
-      <div className="container mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Heading */}
-          <div className="lg:col-span-4">
-            <div className="w-12 h-1 bg-red-700 mb-6" />
-            <h2 className="bebas-neue uppercasetext-4xl md:text-5xl font-bold text-slate-900 leading-tight">
-              Bachelor of Science in Information Technology.
-            </h2>
-            <p className="mt-4 text-lg text-slate-600 leading-relaxed max-w-sm">
-              Find program activities, task force members, and accreditation
-              documents here.
-            </p>
-          </div>
+      <div className="container mx-auto px-6 py-10">
+        {/* Heading (on top) */}
+        <div className="mb-12">
+          <div className="w-12 h-1 bg-red-700 mb-6" />
+          <h2 className="bebas-neue uppercase text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
+            Bachelor of Science in Information Technology.
+          </h2>
+          <p className="mt-4 text-lg text-slate-600 leading-relaxed max-w-xl">
+            Find program activities, task force members, and accreditation
+            documents here.
+          </p>
+        </div>
 
-          {/* Links */}
-          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {resources.map((item) => (
-              <a
-                key={item.title}
-                href={item.href}
-                className="group relative flex flex-col bg-white p-7 rounded-2xl border border-slate-200 hover:border-red-700 hover:shadow-lg transition focus:outline-none focus-visible:ring-4 focus-visible:ring-red-200"
-              >
-                <div className="w-14 h-14 rounded-xl bg-red-50 text-red-700 flex items-center justify-center group-hover:bg-red-700 group-hover:text-white transition">
-                  <svg
-                    className="w-7 h-7"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d={item.path}
-                    />
-                  </svg>
-                </div>
-
-                <h3 className="inconsolata mt-6 text-xl font-bold text-slate-900">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm text-slate-600 leading-relaxed pr-8">
-                  {item.description}
-                </p>
-
+        {/* Cards (below) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {resources.map((item) => (
+            <a
+              key={item.title}
+              href={item.href}
+              className="group relative flex flex-col bg-white p-7 rounded-2xl border border-slate-200 hover:border-red-700 hover:shadow-lg transition focus:outline-none focus-visible:ring-4 focus-visible:ring-red-200"
+            >
+              <div className="w-14 h-14 rounded-xl bg-red-50 text-red-700 flex items-center justify-center group-hover:bg-red-700 group-hover:text-white transition">
                 <svg
-                  className="absolute right-6 bottom-7 w-5 h-5 text-slate-300 group-hover:text-red-700 group-hover:translate-x-1 transition"
+                  className="w-7 h-7"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
-                  strokeWidth="2"
+                  strokeWidth="1.5"
                   stroke="currentColor"
                   aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                    d={item.path}
                   />
                 </svg>
-              </a>
-            ))}
-          </div>
+              </div>
+
+              <h3 className="inconsolata mt-6 text-xl font-bold text-slate-900">
+                {item.title}
+              </h3>
+              <p className="mt-2 text-sm text-slate-600 leading-relaxed pr-8">
+                {item.description}
+              </p>
+
+              <svg
+                className="absolute right-6 bottom-7 w-5 h-5 text-slate-300 group-hover:text-red-700 group-hover:translate-x-1 transition"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="2"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                />
+              </svg>
+            </a>
+          ))}
         </div>
       </div>
     </section>

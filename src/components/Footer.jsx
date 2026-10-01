@@ -16,8 +16,6 @@ const Footer = () => {
               learning to build solutions for the future.
             </p>
           </div>
-
-          {/* Quick Links */}
          
 
           {/* Contact */}
@@ -35,13 +33,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="mt-10 border-t border-gray-600 pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-gray-400">
-            © {new Date().getFullYear()} Information Technology. All rights
-            reserved.
-          </p>
-        </div>
+        
       </div>
     </footer>
   );

@@ -37,7 +37,7 @@ const Navbar = () => {
 
     {
       title: "Bachelor of Science in Information Technology",
-      href: "#BSIT",
+      href: "#bsit-section",
       columns: [
         {
           title: "BSIT Program",
