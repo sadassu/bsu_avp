@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+.inconsolata {
+  font-family: "Inconsolata", monospace;
+  font-optical-sizing: auto;
+  font-weight: 200 900;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.bebas-neue {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
