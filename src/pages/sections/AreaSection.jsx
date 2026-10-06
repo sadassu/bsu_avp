@@ -1,53 +1,66 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const AREAS = [
   {
+    slug: "vmgo",
     title: "Vision, Mission, Goals, and Objectives",
     note: "Institutional direction and how it is shared and put into practice.",
   },
   {
+    slug: "faculty",
     title: "Faculty",
     note: "Qualifications, workload, development, and performance of teaching staff.",
   },
   {
+    slug: "curriculum-instruction",
     title: "Curriculum and Instruction",
     note: "Program design, teaching methods, and assessment of learning.",
   },
   {
+    slug: "support-to-students",
     title: "Support to Students",
     note: "Services, programs, and activities that support student welfare.",
   },
   {
+    slug: "research",
     title: "Research",
     note: "Research agenda, outputs, funding, and utilization.",
   },
   {
+    slug: "extension-community-involvement",
     title: "Extension and Community Involvement",
     note: "Outreach programs and partnerships with the community.",
   },
   {
+    slug: "library",
     title: "Library",
     note: "Collections, services, staffing, and learning resources.",
   },
   {
+    slug: "physical-plant-facilities",
     title: "Physical Plant and Facilities",
     note: "Campus buildings, classrooms, and the safety and upkeep of facilities.",
   },
   {
+    slug: "laboratories",
     title: "Laboratories",
     note: "Laboratory spaces, equipment, and safety practices.",
   },
   {
+    slug: "administration",
     title: "Administration",
     note: "Governance, management, records, and resource planning.",
   },
 ];
 
-const AreaSection = ({ onSelectArea }) => {
+const AreaSection = () => {
+  const navigate = useNavigate();
+
   return (
     <section
       id="program-areas"
-      className=" px-5 py-12 font-sans text-[#2a1416]"
+      className="px-5 py-12 font-sans text-[#2a1416]"
       aria-labelledby="areas-heading"
     >
       <div className="mx-auto max-w-260">
@@ -63,13 +76,12 @@ const AreaSection = ({ onSelectArea }) => {
           Information Technology program
         </p>
 
-        {/* Two columns on tablet and up, one on mobile */}
         <ol className="m-0 grid list-none grid-cols-1 gap-3 p-0 min-[700px]:grid-cols-2">
           {AREAS.map((area, index) => {
             const number = index + 1;
 
             return (
-              <li key={area.title}>
+              <li key={area.slug}>
                 <button
                   type="button"
                   className="
@@ -86,7 +98,7 @@ const AreaSection = ({ onSelectArea }) => {
                     focus-visible:outline-2 focus-visible:outline-offset-2
                     focus-visible:outline-[#b3201f]
                   "
-                  onClick={() => onSelectArea && onSelectArea(number, area)}
+                  onClick={() => navigate(`/areas/${area.slug}`)}
                 >
                   {/* Red indicator */}
                   <span
@@ -107,6 +119,7 @@ const AreaSection = ({ onSelectArea }) => {
                     <span className="block inconsolata text-[1.5rem] font-semibold leading-[1.3]">
                       {area.title}
                     </span>
+
                     <span className="mt-1 block text-[0.88rem] leading-normal text-[#7a5b5e]">
                       {area.note}
                     </span>

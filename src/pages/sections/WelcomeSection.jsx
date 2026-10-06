@@ -8,13 +8,13 @@ const WelcomeSection = () => {
     <section className="w-full relative">
       <img
         src={HexagonBackground}
-        alt="Hexagon Background"
+        alt=""
         className="absolute w-50 h-50 object-cover"
       />
 
       <img
         src={HexagonBackgroundBottom}
-        alt="Hexagon Background Bottom"
+        alt=""
         className="absolute bottom-0 w-50 h-50 object-cover"
       />
 
