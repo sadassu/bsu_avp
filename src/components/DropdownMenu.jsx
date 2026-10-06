@@ -1,8 +1,54 @@
-const DropdownMenu = ({ title, href, columns, image }) => {
+import React, { useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+
+const DropdownMenu = ({ title, path, columns, image }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleLinkClick = (e, linkPath = path) => {
+    setIsOpen(false);
+
+    // Handle links with hash, e.g. "/#program-areas"
+    if (linkPath.includes("#")) {
+      e.preventDefault();
+
+      const [pathname, hash] = linkPath.split("#");
+
+      // If already on the target page
+      if (location.pathname === pathname) {
+        document.getElementById(hash)?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+
+        return;
+      }
+
+      // Go to the target page first
+      navigate(pathname);
+
+      // Wait for the page to render, then scroll
+      setTimeout(() => {
+        document.getElementById(hash)?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 100);
+    }
+  };
+
   return (
-    <div className="relative h-full group">
-      <a
-        href={href}
+    <div
+      className="relative h-full group"
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
+    >
+      {/* Main menu link */}
+      <Link
+        to={path}
+        onClick={(e) => handleLinkClick(e)}
         className="
           relative h-full flex items-center
           text-sm font-medium text-gray-700
@@ -15,18 +61,20 @@ const DropdownMenu = ({ title, href, columns, image }) => {
         "
       >
         {title}
-      </a>
+      </Link>
 
+      {/* Dropdown */}
       <div
-        className="
+        className={`
           fixed top-15 left-0 w-screen
           bg-white border border-gray-200 shadow-lg
-          opacity-0 invisible translate-y-2
-          group-hover:opacity-100
-          group-hover:visible
-          group-hover:translate-y-0
           transition-all duration-200 z-50
-        "
+          ${
+            isOpen
+              ? "opacity-100 visible translate-y-0"
+              : "opacity-0 invisible translate-y-2"
+          }
+        `}
       >
         <div className="max-w-7xl mx-auto p-8 flex gap-10">
           {/* LEFT - IMAGE / LOGO */}
@@ -48,19 +96,25 @@ const DropdownMenu = ({ title, href, columns, image }) => {
           <div className="flex-1 grid grid-cols-4 gap-8">
             {columns.map((column, index) => (
               <div key={index}>
-                <h3 className="font-semibold text-gray-900 mb-3">
-                  {column.title}
-                </h3>
+                {column.title && (
+                  <h3 className="font-semibold text-gray-900 mb-3">
+                    {column.title}
+                  </h3>
+                )}
 
                 <div className="flex flex-col gap-2">
                   {column.links.map((link, index) => (
-                    <a
+                    <Link
                       key={index}
-                      href={link.href}
-                      className="text-sm text-gray-600 hover:text-red-600"
+                      to={link.path}
+                      onClick={(e) => handleLinkClick(e, link.path)}
+                      className="
+                        text-sm text-gray-600
+                        hover:text-red-600
+                      "
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>

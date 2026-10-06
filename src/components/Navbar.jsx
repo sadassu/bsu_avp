@@ -7,29 +7,59 @@ const Navbar = () => {
   const menus = [
     {
       title: "Program Areas",
-      href: "#program",
+      path: "/#program-areas",
       columns: [
         {
           title: "Program Areas",
           links: [
-            { label: "Vision, Mission, Goals, and Objectives", href: "#" },
-            { label: "Faculty", href: "#" },
-            { label: "Curriculum and Instruction", href: "#" },
+            {
+              label: "Vision, Mission, Goals, and Objectives",
+              path: "/areas/vmgo",
+            },
+            {
+              label: "Faculty",
+              path: "/areas/faculty",
+            },
+            {
+              label: "Curriculum and Instruction",
+              path: "/areas/curriculum-instruction",
+            },
           ],
         },
         {
           links: [
-            { label: "Support to Students", href: "#" },
-            { label: "Research", href: "#" },
-            { label: "Extension and Community Involvement", href: "#" },
-            { label: "Library", href: "#" },
+            {
+              label: "Support to Students",
+              path: "/areas/support-to-students",
+            },
+            {
+              label: "Research",
+              path: "/areas/research",
+            },
+            {
+              label: "Extension and Community Involvement",
+              path: "/areas/extension-community-involvement",
+            },
+            {
+              label: "Library",
+              path: "/areas/library",
+            },
           ],
         },
         {
           links: [
-            { label: "Physical Plant and Facilities", href: "#" },
-            { label: "Laboratories", href: "#" },
-            { label: "Administration", href: "#" },
+            {
+              label: "Physical Plant and Facilities",
+              path: "/areas/physical-plant-facilities",
+            },
+            {
+              label: "Laboratories",
+              path: "/areas/laboratories",
+            },
+            {
+              label: "Administration",
+              path: "/areas/administration",
+            },
           ],
         },
       ],
@@ -37,27 +67,45 @@ const Navbar = () => {
 
     {
       title: "Bachelor of Science in Information Technology",
-      href: "#bsit-section",
+      path: "/bsit",
       columns: [
         {
           title: "BSIT Program",
           links: [
-            { label: "Program Activities", href: "#" },
-            { label: "Directory Task Force", href: "#" },
-            { label: "AACCUP Additional Documents", href: "#" },
+            {
+              label: "Program Activities",
+              path: "/bsit/program-activities",
+            },
+            {
+              label: "Directory Task Force",
+              path: "/bsit/directory-task-force",
+            },
+            {
+              label: "AACCUP Additional Documents",
+              path: "/bsit/aaccup-additional-documents",
+            },
           ],
         },
         {
           title: "Reference Files",
           links: [
-            { label: "Curriculum", href: "#" },
-            { label: "Certificate of Program Compliance", href: "#" },
+            {
+              label: "Curriculum",
+              path: "/bsit/curriculum",
+            },
+            {
+              label: "Certificate of Program Compliance",
+              path: "/bsit/certificate-of-program-compliance",
+            },
             {
               label:
                 "CMO 25 s2015. Policies, Standards and Guidelines for BSIT",
-              href: "#",
+              path: "/bsit/cmo-25-s2015",
             },
-            { label: "AACCUP Technical Review Board Action (PSV)", href: "#" },
+            {
+              label: "AACCUP Technical Review Board Action (PSV)",
+              path: "/bsit/aaccup-technical-review-board-action",
+            },
           ],
         },
       ],
@@ -69,7 +117,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 h-15 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <Link path="/" className="text-xl font-bold text-gray-900">
+          <Link to="/" className="text-xl font-bold text-gray-900">
             <img
               src={BSULogo}
               className="h-10 w-auto"
@@ -92,7 +140,7 @@ const Navbar = () => {
               image={BSULogo}
               key={index}
               title={menu.title}
-              href={menu.href}
+              path={menu.path}
               columns={menu.columns}
             />
           ))}

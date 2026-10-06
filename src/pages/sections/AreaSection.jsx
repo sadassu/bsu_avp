@@ -46,7 +46,7 @@ const AREAS = [
 const AreaSection = ({ onSelectArea }) => {
   return (
     <section
-      id="program"
+      id="program-areas"
       className=" px-5 py-12 font-sans text-[#2a1416]"
       aria-labelledby="areas-heading"
     >
@@ -107,14 +107,14 @@ const AreaSection = ({ onSelectArea }) => {
                     <span className="block inconsolata text-[1.5rem] font-semibold leading-[1.3]">
                       {area.title}
                     </span>
-                    <span className="mt-1 block text-[0.88rem] leading-[1.5] text-[#7a5b5e]">
+                    <span className="mt-1 block text-[0.88rem] leading-normal text-[#7a5b5e]">
                       {area.note}
                     </span>
                   </span>
 
                   {/* Arrow */}
                   <svg
-                    className="mt-1 h-5 w-5 text-[#7a5b5e] transition-[transform,color] duration-150 group-hover:translate-x-[3px] group-hover:text-[#b3201f] group-focus-visible:translate-x-[3px] group-focus-visible:text-[#b3201f]"
+                    className="mt-1 h-5 w-5 text-[#7a5b5e] transition-[transform,color] duration-150 group-hover:translate-x-0.75 group-hover:text-[#b3201f] group-focus-visible:translate-x-0.75 group-focus-visible:text-[#b3201f]"
                     viewBox="0 0 20 20"
                     fill="none"
                     stroke="currentColor"

@@ -1,6 +1,7 @@
 import React from "react";
 import HexagonPicture from "../../components/HexagonPicture";
 import HexagonBackground from "../../assets/canva_assets/background_hexagon.png";
+import HexagonBackgroundBottom from "../../assets/canva_assets/background_hexagon_bottom.png";
 
 const WelcomeSection = () => {
   return (
@@ -9,6 +10,12 @@ const WelcomeSection = () => {
         src={HexagonBackground}
         alt="Hexagon Background"
         className="absolute w-50 h-50 object-cover"
+      />
+
+      <img
+        src={HexagonBackgroundBottom}
+        alt="Hexagon Background Bottom"
+        className="absolute bottom-0 w-50 h-50 object-cover"
       />
 
       <div className="absolute bottom-0 right-0 p-4 text-xl font-bold">

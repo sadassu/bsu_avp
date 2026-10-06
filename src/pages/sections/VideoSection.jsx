@@ -54,7 +54,7 @@ const VideoSection = () => {
                 {/* Poster background */}
                 <div
                   aria-hidden="true"
-                  className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-950"
+                  className="absolute inset-0 bg-linear-to-br from-slate-800 via-slate-900 to-slate-950"
                 />
                 <div
                   aria-hidden="true"
